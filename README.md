@@ -1,13 +1,23 @@
-## Getting Started
+## Java   Anka
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A java program to track Participant tasks
 
-## Folder Structure
+## Project Structure
 
 The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `src`: the folder contains the java source files
+- `lib`: the folder contains mysql-connector.jar
+
+## To run the project (For linux)
+
+``` 
+    java -cp bin JavaProgram 
+```
+ ## For windows
+ ```
+ java -cp bin '--enable-preview' javaProgram 
+ ```
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 

@@ -37,8 +37,8 @@ public class PostProduct{
     
             try {
                 File file = new File("productDetails.csv");
-                file.createNewFile();
-                FileWriter Write = new FileWriter("productDetails.csv");
+                // file.createNewFile();
+                FileWriter Write = new FileWriter(file);
                 //product	quantity	price	rate description productowner	created_at	updated_at	quantity_left	
                 
                 String ts = "0," + productName + "," + Quantity + ","+ price +"," + productDescription + "," + rate+ "," + owner+ ","+ instant +","+ instant + "," + quantity_left;
