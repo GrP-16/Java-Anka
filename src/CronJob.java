@@ -32,7 +32,7 @@ public static void fetchPerformance(Statement statement) {
      String res = inp.next();
 
     String query = "SELECT * FROM `participantdetails` WHERE name ='"+res+"';";
-    String qry = "SELECT * FROM `productdetails` WHERE name ='"+res+"';";
+    String qry = "SELECT * FROM `productdetails` WHERE productowner='"+res+"';";
         
     // query data from `participantdetails` table.
             ResultSet result = DB.getData(statement,query);
@@ -64,18 +64,19 @@ public static void fetchPerformance(Statement statement) {
 
 public static void pLogic(String a[], String table,Statement st){
         // System.out.println(table+","+a.length);
-        if (a.length == 5) {
-            //id	product	quantity	price	description	rate	productowner	created_at	>updated_at	quantity_left
+        if (a.length == 6) {
+            //id	name	product	DateOfBirth	points	created_at	updated_at	return_customer	position
             System.out.println("Participant details");
-                String sql = "INSERT INTO `"+ table +"` (`id`,`name`,`Date Of Birth`,`created_at`,`updated_at`,`points`,`quantity`) VALUES ('"+a[0]+"','"+a[1]+"','"+a[2]+"','"+ a[3] +"','"+a[4]+"',0,0);";
+                String sql = "INSERT INTO `"+ table +"` (`id`,`name`,`password`,`product`,`DateOfBirth`,`points`,`created_at`,`updated_at`,`return_customer`,`quantity`) VALUES (0,'"+a[0]+"','"+a[1]+"','"+ a[2] +"','"+a[3]+"',0,'"+a[4]+",'"+a[5]+"',0,0);";
         //    helps us to perform db insertions for participantdetails
             DB.makeQuery(st, sql);
                 // System.out.println(sql) ;
-        } else {
+        } else { 
             System.out.println("Product details\n");
             // 
-      // id	name rank	product	quantity	description	rate	created_at	updated_at
-            String sql = "INSERT INTO `"+ table +"` (`id`, `product`, `quantity`, `` , `description`, `rate`, `productowner`, `created_at`, `updated_at`, `quantity_left`) VALUES ('"+a[0]+"', '"+a[1]+"', '"+a[2]+"', '"+ a[3] +"', '"+a[4]+"','"+a[5]+"','"+a[6]+"','"+a[7]+"','"+a[8]+"','"+a[9]+"');";
+      // id	product	quantity	price	description	rate	productowner	created_at	updated_at	quantity_left	
+
+            String sql = "INSERT INTO `"+ table +"` (`id`, `product`, `quantity`, `price` , `description`, `rate`, `productowner`, `created_at`, `updated_at`,`quantity_left`) VALUES (0, '"+a[1]+"', '"+a[2]+"', '"+ a[3] +"', '"+a[4]+"','"+a[5]+"','"+a[6]+"','"+a[7]+"','"+a[8]+"','"+a[9]+"');";
         //    helps us to perform db insertions for product details
             DB.makeQuery(st, sql);
             // System.out.println(sql);

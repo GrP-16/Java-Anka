@@ -30,16 +30,15 @@ public class App {
         System.out.println("+-------------------------------------------------------------------------------------+");
         System.out.println("|                               Welcome to Anka CLI                                   |");
         System.out.println("+-------------------------------------------------------------------------------------+");
-            System.out.println("| For help type: -h                                                                ");
-       
+            System.out.println("| For help type: -h                                                                 |");
         System.out.println("+-------------------------------------------------------------------------------------+");
-        System.out.println("|          Command          |  Options                                                |");
-        System.out.println("+						   |														 +");
-        System.out.println("|   Register                |   name  DOB(yyy-mm-dd)					                 |");
-        System.out.println("+");
+        System.out.println("|          Command          |  Options                                                ");
+        System.out.println("+-------------------------------------------------------------------------------------|");
+        System.out.println("|   Register                |   name  DOB(yyy-mm-dd)					                 ");
+        // System.out.println("+");
         System.out.println("|   post-product            |   product	quantity	price	rate description productowner created_at updated_at	quantity_left");
-        System.out.println("+						   +														 +");
-        System.out.println("|   Performance             |                                                         |");
+        // System.out.println("+						   															 ");
+        System.out.println("|   Performance             |                                                         ");
         System.out.println("+-------------------------------------------------------------------------------------+");
     }
 	public static void menu(String a[]) {

@@ -27,8 +27,8 @@ public class PostProduct{
                 productName = params[0];
                 Quantity =  Integer.parseInt(params[1]);
                 price = Integer.parseInt(params[2]);
-                rate = Integer.parseInt(params[3]);
-                productDescription = params[4];
+                rate = Integer.parseInt(params[4]);
+                productDescription = params[3];
                 owner = params[5];
                 quantity_left = Integer.parseInt(params[6]);
             // for (String string : params) {
@@ -37,11 +37,10 @@ public class PostProduct{
     
             try {
                 File file = new File("productDetails.csv");
-                // file.createNewFile();
                 FileWriter Write = new FileWriter(file);
-                //product	quantity	price	rate description productowner	created_at	updated_at	quantity_left	
+                //id	product	quantity	price	description	rate	productowner	created_at	updated_at	quantity_left	
                 
-                String ts = "0," + productName + "," + Quantity + ","+ price +"," + productDescription + "," + rate+ "," + owner+ ","+ instant +","+ instant + "," + quantity_left;
+                String ts = "0," + productName + "," + Quantity + ","+ price +"," + rate + "," + productDescription + "," + owner + "," + quantity_left +","+ instant + "," + instant;
                 Write.write(ts);
                 System.out.println("Successfully registered products");
                 Write.close();
