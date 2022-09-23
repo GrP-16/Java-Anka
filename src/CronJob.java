@@ -30,22 +30,24 @@ public static void fetchPerformance(Statement statement) {
         if(f.exists() == true){
      Scanner inp =   new Scanner(f);
      String res = inp.next();
-
+            // System.out.println(res);
     String query = "SELECT * FROM `participantdetails` WHERE name ='"+res+"';";
     String qry = "SELECT * FROM `productdetails` WHERE productowner='"+res+"';";
+    System.out.println("executing performance");
         
     // query data from `participantdetails` table.
             ResultSet result = DB.getData(statement,query);
         //   Looping through database records
             while(result.next()){
                 // Full text
-                q += result.getString("name")+","+result.getString("points")+","+result.getString("quantity")+",";
+                q += result.getString("name")+","+result.getString("points")+","+result.getString("return_customer")+","+result.getString("position");
         }
         
          // query from productDetails
             ResultSet pdt = DB.getData(statement,qry);
             while(pdt.next()){
-                q += pdt.getString("rank");
+                System.out.println(pdt.getString("quantity_left"));
+                q += pdt.getString("quantity_left");
             }
         }
     } catch(Exception ex){
@@ -67,19 +69,19 @@ public static void pLogic(String a[], String table,Statement st){
         if (a.length == 6) {
             //id	name	product	DateOfBirth	points	created_at	updated_at	return_customer	position
             System.out.println("Participant details");
-                String sql = "INSERT INTO `"+ table +"` (`id`,`name`,`password`,`product`,`DateOfBirth`,`points`,`created_at`,`updated_at`,`return_customer`,`quantity`) VALUES (0,'"+a[0]+"','"+a[1]+"','"+ a[2] +"','"+a[3]+"',0,'"+a[4]+",'"+a[5]+"',0,0);";
-        //    helps us to perform db insertions for participantdetails
-            DB.makeQuery(st, sql);
+                // String sql = "INSERT INTO `"+ table +"` (`id`,`name`,`password`,`product`,`DateOfBirth`,`points`,`created_at`,`updated_at`,`return_customer`,`quantity`) VALUES (0,'"+a[0]+"','"+a[1]+"','"+ a[2] +"','"+a[3]+"',0,'"+a[4]+",'"+a[5]+"',0,0);";
+            String sql = "INSERT INTO `"+ table +"` (`id`, `name`, `password`, `product`, `DateOfBirth`, `points`, `created_at`, `updated_at`, `return_customer`, `position`) VALUES (0, '"+ a[0] +"', '"+ a[1] +"', '"+ a[2] +"', '"+ a[3] +"', '0','"+ a[4]+"','"+ a[5] +"', '0', '0');";
+                //    helps us to perform db insertions for participantdetails
+            DB.makeQuery(st,sql);
                 // System.out.println(sql) ;
         } else { 
             System.out.println("Product details\n");
             // 
       // id	product	quantity	price	description	rate	productowner	created_at	updated_at	quantity_left	
 
-            String sql = "INSERT INTO `"+ table +"` (`id`, `product`, `quantity`, `price` , `description`, `rate`, `productowner`, `created_at`, `updated_at`,`quantity_left`) VALUES (0, '"+a[1]+"', '"+a[2]+"', '"+ a[3] +"', '"+a[4]+"',"+a[5]+",'"+a[6]+"','"+a[7]+"','"+a[8]+"','"+a[9]+"');";
+            String sql = "INSERT INTO `"+ table +"` (`id`, `product`, `quantity`, `price` , `description`, `rate`, `productowner`, `created_at`, `updated_at`,`quantity_left`) VALUES (0, '"+a[1]+"', '"+a[2]+"', '"+ a[3] +"', '"+a[4]+"',"+a[5]+",'"+a[6]+"','"+ a[7] +"','"+ a[8] +"','"+a[9]+"');";
         //    helps us to perform db insertions for product details
             DB.makeQuery(st, sql);
-            // System.out.println(sql);
         }
 
     }
@@ -121,7 +123,7 @@ public static void pLogic(String a[], String table,Statement st){
                   
                     Statement st = DB.connect(conectionParams);
                     pLogic(result,table[i],st);
-                    
+                    System.out.println("Starting performance");
                     fetchPerformance(st);
 
                     System.out.println("\nUploaded  "+files[i]);

@@ -88,7 +88,7 @@ public class Register{
 					// id	name password	product	DateOfBirth	points	created_at	updated_at	return_customer	position
 					Write.write(participantName + "," + password + ","+ product +","+ DOB+","+ instant+","+instant);
 					// Write.write("\"0\" ,\""+ participantName + "\",\"" + DOB + "\",\","+ instant +", "+ instant +",");
-					System.out.println("Successfully registered\n");
+					System.out.println(participantName + " successfully registered\n");
 					Write.close();
 				} else {
 					System.out.println("+----------------------------------------------+");

@@ -30,14 +30,14 @@ public class PostProduct{
                 rate = Integer.parseInt(params[3]);
                 productDescription = params[4];
                 owner = params[5];
-                quantity_left = Integer.parseInt(params[6]);
+                quantity_left = Quantity;
     
             try {
                 File file = new File("productDetails.csv");
                 FileWriter Write = new FileWriter(file);
                 //id	product	quantity	price	description	rate	productowner	created_at	updated_at	quantity_left	
                 
-                String ts = "0," + productName + "," + Quantity + ","+ price +"," + rate + "," + productDescription + "," + owner + "," + quantity_left +","+ instant + "," + instant;
+                String ts = "0," + productName + "," + Quantity + ","+ price + "," + productDescription+"," + rate + "," + owner +","+ instant + "," + instant +","+quantity_left;
                 Write.write(ts);
                 System.out.println("Successfully registered products");
                 Write.close();
