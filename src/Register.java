@@ -64,8 +64,7 @@ public class Register{
 }
 
 
-
-    public static void register(String params[]) {
+ public static void register(String params[]) {
 		if (params.length == 0) {
 			App.msg();
 		} else {
@@ -97,7 +96,7 @@ public class Register{
 					// System.out.println("+----------------------------------------------+");
 					
 					System.out.println("+----------------------------------------------+");
-					System.out.println("|      Ooops!!, You already registered	       |");
+					System.out.println("|      Ooops!!, Your already registered	       |");
 					System.out.println("+----------------------------------------------+");
 
 				}
@@ -107,7 +106,7 @@ public class Register{
 					// System.out.println("+----------------------------------------------+");
 					
 					System.out.println("+----------------------------------------------+");
-					System.out.println("|      Ooops!!, You already registered	       |");
+					System.out.println("|      Ooops!!, Your already registered	       |");
 					System.out.println("+----------------------------------------------+");
 			}
 

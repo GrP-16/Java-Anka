@@ -76,7 +76,7 @@ public static void pLogic(String a[], String table,Statement st){
             // 
       // id	product	quantity	price	description	rate	productowner	created_at	updated_at	quantity_left	
 
-            String sql = "INSERT INTO `"+ table +"` (`id`, `product`, `quantity`, `price` , `description`, `rate`, `productowner`, `created_at`, `updated_at`,`quantity_left`) VALUES (0, '"+a[1]+"', '"+a[2]+"', '"+ a[3] +"', '"+a[4]+"','"+a[5]+"','"+a[6]+"','"+a[7]+"','"+a[8]+"','"+a[9]+"');";
+            String sql = "INSERT INTO `"+ table +"` (`id`, `product`, `quantity`, `price` , `description`, `rate`, `productowner`, `created_at`, `updated_at`,`quantity_left`) VALUES (0, '"+a[1]+"', '"+a[2]+"', '"+ a[3] +"', '"+a[4]+"',"+a[5]+",'"+a[6]+"','"+a[7]+"','"+a[8]+"','"+a[9]+"');";
         //    helps us to perform db insertions for product details
             DB.makeQuery(st, sql);
             // System.out.println(sql);

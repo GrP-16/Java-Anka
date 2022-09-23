@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.*;
+// import java.util.*;
 import java.sql.Timestamp;
 import java.time.Instant;
 
@@ -27,13 +27,10 @@ public class PostProduct{
                 productName = params[0];
                 Quantity =  Integer.parseInt(params[1]);
                 price = Integer.parseInt(params[2]);
-                rate = Integer.parseInt(params[4]);
-                productDescription = params[3];
+                rate = Integer.parseInt(params[3]);
+                productDescription = params[4];
                 owner = params[5];
                 quantity_left = Integer.parseInt(params[6]);
-            // for (String string : params) {
-            // 	System.out.println(string);
-            // }
     
             try {
                 File file = new File("productDetails.csv");
@@ -44,8 +41,8 @@ public class PostProduct{
                 Write.write(ts);
                 System.out.println("Successfully registered products");
                 Write.close();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
+
                 System.out.println("Ooops! "+e.getMessage());
             }
         } else {
